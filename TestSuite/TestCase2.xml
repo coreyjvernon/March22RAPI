@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<con:testCase id="36f0d2ad-e00f-4959-8fa3-9970a70e7f15" discardOkResults="false" failOnError="false" failTestCaseOnErrors="true" keepSession="false" name="TestCase1" searchProperties="true" timeout="0" xmlns:con="http://eviware.com/soapui/config">
+<con:testCase id="8f593459-0630-4f79-b208-2e87d26f83e2" discardOkResults="false" failOnError="false" failTestCaseOnErrors="true" keepSession="false" name="TestCase2" searchProperties="true" timeout="0" xmlns:con="http://eviware.com/soapui/config">
   <con:settings>
-    <con:setting id="36f0d2ad-e00f-4959-8fa3-9970a70e7f15fileName">TestCase1</con:setting>
+    <con:setting id="8f593459-0630-4f79-b208-2e87d26f83e2fileName">TestCase2</con:setting>
   </con:settings>
-  <con:testStep type="datasource" name="Data Source" id="187212d3-cf31-49e6-a2b9-245c5429d55a">
+  <con:testStep type="datasource" name="Data Source" id="292c980c-2815-46ef-b21a-c7baf1f5ad82">
     <con:settings/>
     <con:config xsi:type="con:DataSourceStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
       <con:dataSource type="Excel">
@@ -29,7 +29,7 @@
       <con:expandProperties>false</con:expandProperties>
     </con:config>
   </con:testStep>
-  <con:testStep type="restrequest" name="Request 1" id="5e6349a8-8b06-4d1c-b57c-c99b72c5c9b9">
+  <con:testStep type="restrequest" name="Request 1" id="ededf665-72cb-4f0e-a298-5c92bb2170ab">
     <con:settings/>
     <con:config service="https://maps.googleapis.com" resourcePath="/maps/api/geocode/json" methodName="Json" xsi:type="con:RestRequestStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
       <con:restRequest name="Request 1" id="55445030-b6ef-4c98-ae64-d8120d490113" mediaType="application/json">
@@ -60,6 +60,7 @@
         </con:credentials>
         <con:jmsConfig JMSDeliveryMode="PERSISTENT"/>
         <con:parameters>
+          <con:entry key="address" value="${Data Source#City}"/>
           <con:entry key="key" value="AIzaSyCaDvq9XtyA6p5df4lsr7xkwSCydm5Xom0"/>
         </con:parameters>
         <con:parameterOrder>
@@ -74,7 +75,7 @@
       </con:restRequest>
     </con:config>
   </con:testStep>
-  <con:testStep type="multiConfigureTestStep" name="API Connection" id="53eb76f7-e52d-429c-8ce5-fd5cf50d18b7" disabled="true">
+  <con:testStep type="multiConfigureTestStep" name="API Connection" id="97854954-a1c4-4c5e-85b2-abd4d6d3f377" disabled="true">
     <con:settings/>
     <con:config activeStep="restMultiTestStep" xsi:type="con:MultiConfigurationStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
       <con:restRequestStep service="https://maps.googleapis.com" methodName="Json" resourcePath="/maps/api/geocode/json" xsi:type="con:RestRequestStep">
@@ -114,7 +115,7 @@
       </con:restRequestStep>
     </con:config>
   </con:testStep>
-  <con:testStep type="datasourceloop" name="Data Source Loop" id="391adb89-a4bb-4773-b214-0ee9cbf70c0e">
+  <con:testStep type="datasourceloop" name="Data Source Loop" id="6b0d326a-364f-43b9-be5f-833844e800ee">
     <con:settings/>
     <con:config>
       <dataSourceStep>Data Source</dataSourceStep>
@@ -129,5 +130,5 @@
       <con:authProfile>Inherit From Parent</con:authProfile>
     </con:entry>
   </con:environmentSpec>
-  <con:tagId>4326e132-ee26-44f1-92ce-b63c169d1656</con:tagId>
+  <con:tagId>6f8c8989-e00b-46b2-bd8f-1c7d7297a76c</con:tagId>
 </con:testCase>
