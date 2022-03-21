@@ -1,0 +1,104 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<con:resource name="Json" path="/maps/api/geocode/json" id="718bd1c5-08d1-4a02-b836-fc6fadca4274" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:con="http://eviware.com/soapui/config">
+  <con:settings>
+    <con:setting id="718bd1c5-08d1-4a02-b836-fc6fadca4274fileName">Json</con:setting>
+  </con:settings>
+  <con:parameters/>
+  <con:method name="Json" id="255e69f0-a8ad-4902-8d33-dc8369b70e07" method="GET">
+    <con:settings/>
+    <con:parameters>
+      <con:parameter required="true">
+        <con:name>address</con:name>
+        <con:value>Boston</con:value>
+        <con:style>QUERY</con:style>
+        <con:default>Boston</con:default>
+        <con:path xsi:nil="true"/>
+        <con:description xsi:nil="true"/>
+      </con:parameter>
+      <con:parameter required="true">
+        <con:name>key</con:name>
+        <con:value>AIzaSyCaDvq9XtyA6p5df4lsr7xkwSCydm5Xom0</con:value>
+        <con:style>QUERY</con:style>
+        <con:default>AIzaSyCaDvq9XtyA6p5df4lsr7xkwSCydm5Xom0</con:default>
+        <con:path xsi:nil="true"/>
+        <con:description xsi:nil="true"/>
+      </con:parameter>
+    </con:parameters>
+    <con:representation type="RESPONSE">
+      <con:mediaType>application/json; charset=UTF-8</con:mediaType>
+      <con:status>200</con:status>
+      <con:params/>
+      <con:element xmlns:json="https://maps.googleapis.com/maps/api/geocode/json">json:Response</con:element>
+    </con:representation>
+    <con:representation type="RESPONSE">
+      <con:mediaType>application/json;charset=utf-8</con:mediaType>
+      <con:status>200</con:status>
+      <con:params/>
+      <con:element xmlns:json="https://maps.googleapis.com/maps/api/geocode/json">json:Response</con:element>
+    </con:representation>
+    <con:representation type="FAULT">
+      <con:mediaType>application/json; charset=UTF-8</con:mediaType>
+      <con:status>400</con:status>
+      <con:params/>
+      <con:element xmlns:json="https://maps.googleapis.com/maps/api/geocode/json">json:Fault</con:element>
+    </con:representation>
+    <con:request name="Request 1" id="9f5aa2ac-3983-45ef-8989-38e41b40b65c" mediaType="application/json">
+      <con:settings/>
+      <con:endpoint>https://maps.googleapis.com</con:endpoint>
+      <con:credentials>
+        <con:selectedAuthProfile>No Authorization</con:selectedAuthProfile>
+        <con:authType>No Authorization</con:authType>
+      </con:credentials>
+      <con:parameters>
+        <con:entry key="address" value="Boston"/>
+        <con:entry key="key" value="AIzaSyCaDvq9XtyA6p5df4lsr7xkwSCydm5Xom0"/>
+      </con:parameters>
+      <con:parameterOrder>
+        <con:entry>address</con:entry>
+        <con:entry>key</con:entry>
+      </con:parameterOrder>
+      <con:environmentSpec>
+        <con:entry environmentId="d1091b2f-efe9-4410-b99a-b9492ba0ea4f">
+          <con:authProfile>Inherit From Parent</con:authProfile>
+        </con:entry>
+        <con:entry environmentId="fa8aebc0-104d-45f2-8032-b0145b92f8f4">
+          <con:authProfile>Inherit From Parent</con:authProfile>
+        </con:entry>
+        <con:entry environmentId="b9e4b774-a140-406b-9714-7a69f8f7cc29">
+          <con:authProfile>Inherit From Parent</con:authProfile>
+        </con:entry>
+        <con:entry environmentId="96c968e6-e1fa-4bb6-a78e-13a6156bb0fd">
+          <con:authProfile>Inherit From Parent</con:authProfile>
+        </con:entry>
+      </con:environmentSpec>
+    </con:request>
+    <con:environmentSpec>
+      <con:entry environmentId="d1091b2f-efe9-4410-b99a-b9492ba0ea4f">
+        <con:authProfile>Inherit From Parent</con:authProfile>
+      </con:entry>
+      <con:entry environmentId="fa8aebc0-104d-45f2-8032-b0145b92f8f4">
+        <con:authProfile>Inherit From Parent</con:authProfile>
+      </con:entry>
+      <con:entry environmentId="b9e4b774-a140-406b-9714-7a69f8f7cc29">
+        <con:authProfile>Inherit From Parent</con:authProfile>
+      </con:entry>
+      <con:entry environmentId="96c968e6-e1fa-4bb6-a78e-13a6156bb0fd">
+        <con:authProfile>Inherit From Parent</con:authProfile>
+      </con:entry>
+    </con:environmentSpec>
+  </con:method>
+  <con:environmentSpec>
+    <con:entry environmentId="d1091b2f-efe9-4410-b99a-b9492ba0ea4f">
+      <con:authProfile>Inherit From Parent</con:authProfile>
+    </con:entry>
+    <con:entry environmentId="fa8aebc0-104d-45f2-8032-b0145b92f8f4">
+      <con:authProfile>Inherit From Parent</con:authProfile>
+    </con:entry>
+    <con:entry environmentId="b9e4b774-a140-406b-9714-7a69f8f7cc29">
+      <con:authProfile>Inherit From Parent</con:authProfile>
+    </con:entry>
+    <con:entry environmentId="96c968e6-e1fa-4bb6-a78e-13a6156bb0fd">
+      <con:authProfile>Inherit From Parent</con:authProfile>
+    </con:entry>
+  </con:environmentSpec>
+</con:resource>

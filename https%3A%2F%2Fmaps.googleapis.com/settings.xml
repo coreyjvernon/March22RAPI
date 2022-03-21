@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<con:interface xsi:type="con:RestService" id="faebe95a-3ba4-4fe8-bab7-b07c2ab0a8a5" wadlVersion="http://wadl.dev.java.net/2009/02" name="https://maps.googleapis.com" type="rest" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:con="http://eviware.com/soapui/config">
+  <con:settings>
+    <con:setting id="faebe95a-3ba4-4fe8-bab7-b07c2ab0a8a5fileName">https%3A%2F%2Fmaps.googleapis.com</con:setting>
+  </con:settings>
+  <con:definitionCache type="TEXT" rootPart=""/>
+  <con:endpoints>
+    <con:endpoint>http://localhost:8088/</con:endpoint>
+    <con:endpoint>https://maps.googleapis.com</con:endpoint>
+  </con:endpoints>
+  <con:environmentSpec>
+    <con:entry environmentId="d1091b2f-efe9-4410-b99a-b9492ba0ea4f">
+      <con:authProfile>Inherit From Parent</con:authProfile>
+    </con:entry>
+    <con:entry environmentId="fa8aebc0-104d-45f2-8032-b0145b92f8f4">
+      <con:authProfile>Inherit From Parent</con:authProfile>
+    </con:entry>
+    <con:entry environmentId="b9e4b774-a140-406b-9714-7a69f8f7cc29">
+      <con:authProfile>Inherit From Parent</con:authProfile>
+    </con:entry>
+    <con:entry environmentId="96c968e6-e1fa-4bb6-a78e-13a6156bb0fd">
+      <con:authProfile>Inherit From Parent</con:authProfile>
+    </con:entry>
+  </con:environmentSpec>
+</con:interface>
