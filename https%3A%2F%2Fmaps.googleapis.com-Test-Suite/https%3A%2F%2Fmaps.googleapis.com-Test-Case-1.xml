@@ -1,0 +1,187 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<con:testCase id="184f64a3-dc27-49ab-b053-729c632e3070" discardOkResults="false" failOnError="false" failTestCaseOnErrors="true" keepSession="false" name="https://maps.googleapis.com Test Case 1" searchProperties="true" timeout="0" xmlns:con="http://eviware.com/soapui/config">
+  <con:settings>
+    <con:setting id="IncludeOverview">true</con:setting>
+    <con:setting id="IncludeResults">true</con:setting>
+    <con:setting id="FlowLayout">false</con:setting>
+    <con:setting id="ErrorDetails">true</con:setting>
+    <con:setting id="IncludeCoverage">true</con:setting>
+    <con:setting id="184f64a3-dc27-49ab-b053-729c632e3070fileName">https%3A%2F%2Fmaps.googleapis.com-Test-Case-1</con:setting>
+  </con:settings>
+  <con:testStep type="datasource" name="DataSource" id="90dec078-5a63-47b6-b168-916b8c1fe6f0">
+    <con:settings/>
+    <con:config xsi:type="con:DataSourceStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+      <con:dataSource type="Data Generator">
+        <con:configuration>
+          <generatedDataCount>10</generatedDataCount>
+          <generatorsTotalNumber>1</generatorsTotalNumber>
+          <lastSelectedProperty>0</lastSelectedProperty>
+          <GeneratorType0>CITY</GeneratorType0>
+          <PropertyName0>city</PropertyName0>
+          <repetitionCountcity>0</repetitionCountcity>
+          <repeatValuescity>false</repeatValuescity>
+          <escapeSpaceSequence/>
+        </con:configuration>
+      </con:dataSource>
+      <con:shared>true</con:shared>
+      <con:restartShared>true</con:restartShared>
+      <con:property>city</con:property>
+      <con:restartOnRun>true</con:restartOnRun>
+    </con:config>
+  </con:testStep>
+  <con:testStep type="datasource" name="External" id="2548932d-463e-4ce7-bb7f-b6196cdb6545">
+    <con:settings/>
+    <con:config xsi:type="con:DataSourceStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+      <con:dataSource type="Excel">
+        <con:configuration>
+          <file>C:/Users/Corey.Vernon/Desktop/Test/Cities.xlsx</file>
+          <worksheet/>
+          <cell>A1</cell>
+          <ignoreEmpty>false</ignoreEmpty>
+          <evaluateFormulas>false</evaluateFormulas>
+        </con:configuration>
+      </con:dataSource>
+      <con:shared>true</con:shared>
+      <con:restartShared>true</con:restartShared>
+      <con:property>City</con:property>
+      <con:property>Expected State</con:property>
+      <con:startRow>1</con:startRow>
+      <con:endRow/>
+      <con:recordsPerIteration>1</con:recordsPerIteration>
+      <con:completeLastOperation>true</con:completeLastOperation>
+      <con:trimValues>false</con:trimValues>
+      <con:entitizeValues>false</con:entitizeValues>
+      <con:restartOnRun>true</con:restartOnRun>
+      <con:expandProperties>false</con:expandProperties>
+    </con:config>
+  </con:testStep>
+  <con:testStep type="restrequest" name="Request 1" id="8edd04b4-7e3e-4d63-bcd2-006778dc5103">
+    <con:settings/>
+    <con:config service="https://maps.googleapis.com" resourcePath="/maps/api/geocode/{type}" methodName="Json" xsi:type="con:RestRequestStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+      <con:restRequest name="Request 1" id="0d4f1212-f3be-43a0-be5b-4a155b8ffaaf" mediaType="application/json">
+        <con:settings>
+          <con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting>
+        </con:settings>
+        <con:endpoint>https://maps.googleapis.com</con:endpoint>
+        <con:request/>
+        <con:originalUri>https://maps.googleapis.com/maps/api/geocode/json</con:originalUri>
+        <con:assertion type="Valid HTTP Status Codes" id="2228d81c-a97f-48a7-a758-71e9d22f4594" name="Valid HTTP Status Codes">
+          <con:settings/>
+          <con:configuration>
+            <codes>200, 201</codes>
+          </con:configuration>
+        </con:assertion>
+        <con:assertion type="JsonPath Match" id="0b28f59c-13dc-4c3b-8f56-530765b117ba" name="Match content of [long_name]">
+          <con:configuration>
+            <path>$['results'][0]['address_components'][2]['long_name']</path>
+            <content>${External#Expected State}</content>
+            <allowWildcards>false</allowWildcards>
+            <ignoreNamspaceDifferences>false</ignoreNamspaceDifferences>
+            <ignoreComments>false</ignoreComments>
+          </con:configuration>
+        </con:assertion>
+        <con:credentials>
+          <con:selectedAuthProfile>No Authorization</con:selectedAuthProfile>
+          <con:authType>No Authorization</con:authType>
+        </con:credentials>
+        <con:jmsConfig JMSDeliveryMode="PERSISTENT"/>
+        <con:parameters>
+          <con:entry key="key" value="AIzaSyCaDvq9XtyA6p5df4lsr7xkwSCydm5Xom0"/>
+        </con:parameters>
+        <con:parameterOrder>
+          <con:entry>address</con:entry>
+          <con:entry>key</con:entry>
+          <con:entry>type</con:entry>
+        </con:parameterOrder>
+        <con:environmentSpec>
+          <con:entry environmentId="c4a558e2-acc9-412e-96b8-39e53df3d11f">
+            <con:authProfile>Inherit From Parent</con:authProfile>
+          </con:entry>
+          <con:entry environmentId="509ad193-6dcb-4b50-b431-69b2ded263e3">
+            <con:authProfile>Inherit From Parent</con:authProfile>
+          </con:entry>
+          <con:entry environmentId="be30ab3f-76f9-4c8a-a3de-4355cb74f3c7">
+            <con:authProfile>Inherit From Parent</con:authProfile>
+          </con:entry>
+          <con:entry environmentId="b09717c7-6f76-4981-9f27-92cca0807a55">
+            <con:authProfile>Inherit From Parent</con:authProfile>
+          </con:entry>
+        </con:environmentSpec>
+      </con:restRequest>
+    </con:config>
+  </con:testStep>
+  <con:testStep type="multiConfigureTestStep" name="API Connection" id="24147a04-4a2f-4a29-9fd4-2f7d7d16066a">
+    <con:settings/>
+    <con:config activeStep="restMultiTestStep" xsi:type="con:MultiConfigurationStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+      <con:restRequestStep service="https://maps.googleapis.com" methodName="Json" resourcePath="/maps/api/geocode/{type}" xsi:type="con:RestRequestStep">
+        <con:restRequest name="API Connection" id="981e8770-50f6-46cb-b58e-d3d048781fa1" mediaType="application/json">
+          <con:settings>
+            <con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting>
+          </con:settings>
+          <con:encoding>UTF-8</con:encoding>
+          <con:endpoint>https://maps.googleapis.com</con:endpoint>
+          <con:request/>
+          <con:assertion type="Valid HTTP Status Codes" id="a6ca2c7c-c582-476c-aa96-78e6a5e1a85e" name="Valid HTTP Status Codes">
+            <con:settings/>
+            <con:configuration>
+              <codes>200</codes>
+            </con:configuration>
+          </con:assertion>
+          <con:credentials>
+            <con:selectedAuthProfile>No Authorization</con:selectedAuthProfile>
+          </con:credentials>
+          <con:parameters>
+            <con:entry key="address" value="${Request 1#Response#$['results'][0]['address_components'][0]['long_name']}"/>
+            <con:entry key="type" value="json"/>
+            <con:entry key="key" value="AIzaSyCaDvq9XtyA6p5df4lsr7xkwSCydm5Xom0"/>
+          </con:parameters>
+          <con:parametersType>
+            <con:entry key="address" value="Query"/>
+            <con:entry key="type" value="Template"/>
+            <con:entry key="key" value="Query"/>
+          </con:parametersType>
+          <con:parametersDisablesEncoding>
+            <con:entry key="address" value="false"/>
+            <con:entry key="type" value="false"/>
+            <con:entry key="key" value="false"/>
+          </con:parametersDisablesEncoding>
+          <con:environmentSpec>
+            <con:entry environmentId="b09717c7-6f76-4981-9f27-92cca0807a55">
+              <con:authProfile>No Authorization</con:authProfile>
+            </con:entry>
+            <con:entry environmentId="c4a558e2-acc9-412e-96b8-39e53df3d11f">
+              <con:authProfile>No Authorization</con:authProfile>
+            </con:entry>
+            <con:entry environmentId="509ad193-6dcb-4b50-b431-69b2ded263e3">
+              <con:authProfile>No Authorization</con:authProfile>
+            </con:entry>
+          </con:environmentSpec>
+        </con:restRequest>
+      </con:restRequestStep>
+    </con:config>
+  </con:testStep>
+  <con:testStep type="datasourceloop" name="Data Source Loop" id="52e4b867-9b51-42d8-aa1b-dfb8a2523df8">
+    <con:settings/>
+    <con:config>
+      <dataSourceStep>External</dataSourceStep>
+      <targetStep>Request 1</targetStep>
+      <discardResults>false</discardResults>
+    </con:config>
+  </con:testStep>
+  <con:properties/>
+  <con:reportParameters/>
+  <con:environmentSpec>
+    <con:entry environmentId="c4a558e2-acc9-412e-96b8-39e53df3d11f">
+      <con:authProfile>Inherit From Parent</con:authProfile>
+    </con:entry>
+    <con:entry environmentId="509ad193-6dcb-4b50-b431-69b2ded263e3">
+      <con:authProfile>Inherit From Parent</con:authProfile>
+    </con:entry>
+    <con:entry environmentId="be30ab3f-76f9-4c8a-a3de-4355cb74f3c7">
+      <con:authProfile>Inherit From Parent</con:authProfile>
+    </con:entry>
+    <con:entry environmentId="b09717c7-6f76-4981-9f27-92cca0807a55">
+      <con:authProfile>Inherit From Parent</con:authProfile>
+    </con:entry>
+  </con:environmentSpec>
+</con:testCase>
