@@ -1,0 +1,124 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<con:testCase id="25f92851-3262-4fb7-a90a-6a93f703ba23" discardOkResults="false" failOnError="false" failTestCaseOnErrors="true" keepSession="false" name="Test Case 1" searchProperties="true" timeout="0" xmlns:con="http://eviware.com/soapui/config">
+  <con:settings>
+    <con:setting id="25f92851-3262-4fb7-a90a-6a93f703ba23fileName">Test-Case-1</con:setting>
+  </con:settings>
+  <con:testStep type="datasource" name="External" id="71554baf-af4d-4739-836d-aea6e607895a">
+    <con:settings/>
+    <con:config xsi:type="con:DataSourceStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+      <con:dataSource type="Data Generator">
+        <con:configuration>
+          <generatedDataCount>10</generatedDataCount>
+          <generatorsTotalNumber>1</generatorsTotalNumber>
+          <lastSelectedProperty>0</lastSelectedProperty>
+          <GeneratorType0>STR</GeneratorType0>
+          <PropertyName0>item</PropertyName0>
+          <repetitionCountitem>0</repetitionCountitem>
+          <repeatValuesitem>false</repeatValuesitem>
+          <PasswordDataGeneratorUseSpacesitem>true</PasswordDataGeneratorUseSpacesitem>
+          <PasswordDataGeneratorUsePunctuationMarksitem>true</PasswordDataGeneratorUsePunctuationMarksitem>
+          <PasswordDataGeneratorUseLettersitem>true</PasswordDataGeneratorUseLettersitem>
+          <PasswordDataGeneratorUseDigitsitem>true</PasswordDataGeneratorUseDigitsitem>
+          <PasswordDataGeneratorMaxCharacterCountitem>10</PasswordDataGeneratorMaxCharacterCountitem>
+          <PasswordDataGeneratorMinCharacterCountitem>5</PasswordDataGeneratorMinCharacterCountitem>
+          <escapeSpaceSequence/>
+        </con:configuration>
+      </con:dataSource>
+      <con:shared>true</con:shared>
+      <con:restartShared>true</con:restartShared>
+      <con:property>item</con:property>
+      <con:startRow/>
+      <con:endRow/>
+      <con:recordsPerIteration>1</con:recordsPerIteration>
+      <con:completeLastOperation>true</con:completeLastOperation>
+      <con:trimValues>false</con:trimValues>
+      <con:entitizeValues>false</con:entitizeValues>
+      <con:restartOnRun>true</con:restartOnRun>
+      <con:expandProperties>false</con:expandProperties>
+    </con:config>
+  </con:testStep>
+  <con:testStep type="restrequest" name="REST Request" id="2384436d-b78f-4810-9f95-83dce75ae727">
+    <con:settings/>
+    <con:config service="TauAPI" resourcePath="/inventory" methodName="searchInventory" xsi:type="con:RestRequestStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+      <con:restRequest name="REST Request" id="dcf9f417-2ac5-4931-a742-e65c3b967845" mediaType="application/json">
+        <con:settings>
+          <con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting>
+        </con:settings>
+        <con:endpoint>https://virtserver.swaggerhub.com/Corey_Projects/Tau322/2.0.0</con:endpoint>
+        <con:request/>
+        <con:originalUri>https://virtserver.swaggerhub.com/Corey_Projects/Tau322/2.0.0/inventory</con:originalUri>
+        <con:assertion type="Valid HTTP Status Codes" id="196f48f8-d8d0-4587-9dde-6526d6402f5d" name="Valid HTTP Status Codes">
+          <con:settings/>
+          <con:configuration>
+            <codes>200</codes>
+          </con:configuration>
+        </con:assertion>
+        <con:assertion type="JsonPath Match" id="20106e8b-b1cc-4de0-b3f6-e1770f21f48a" name="Match content of [name]">
+          <con:configuration>
+            <path>$[0]['name']</path>
+            <content>"Widget Adapter"</content>
+            <allowWildcards>false</allowWildcards>
+            <ignoreNamspaceDifferences>false</ignoreNamspaceDifferences>
+            <ignoreComments>false</ignoreComments>
+          </con:configuration>
+        </con:assertion>
+        <con:credentials>
+          <con:selectedAuthProfile>No Authorization</con:selectedAuthProfile>
+          <con:authType>No Authorization</con:authType>
+        </con:credentials>
+        <con:jmsConfig JMSDeliveryMode="PERSISTENT"/>
+        <con:parameters>
+          <con:entry key="limit" value=""/>
+        </con:parameters>
+      </con:restRequest>
+    </con:config>
+  </con:testStep>
+  <con:testStep type="multiConfigureTestStep" name="API Connection" id="0ae94c95-f1bf-42ec-b0a4-5bf9de3a097c">
+    <con:settings/>
+    <con:config activeStep="restMultiTestStep" xsi:type="con:MultiConfigurationStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+      <con:restRequestStep service="TauAPI" methodName="searchInventory" resourcePath="/inventory" xsi:type="con:RestRequestStep">
+        <con:restRequest name="API Connection" id="a8b5eeaa-719d-4202-b1c8-63fe0eb0485e" mediaType="application/json">
+          <con:settings/>
+          <con:encoding>UTF-8</con:encoding>
+          <con:endpoint>https://virtserver.swaggerhub.com/Corey_Projects/Tau322/1.0.0</con:endpoint>
+          <con:request/>
+          <con:assertion type="Valid HTTP Status Codes" id="2fe4cc54-f505-4816-a535-dcb0e60e3182" name="Valid HTTP Status Codes">
+            <con:settings/>
+            <con:configuration>
+              <codes>200</codes>
+            </con:configuration>
+          </con:assertion>
+          <con:credentials>
+            <con:selectedAuthProfile>No Authorization</con:selectedAuthProfile>
+          </con:credentials>
+          <con:parameters>
+            <con:entry key="searchString" value=""/>
+            <con:entry key="skip" value=""/>
+            <con:entry key="limit" value=""/>
+          </con:parameters>
+          <con:parametersType>
+            <con:entry key="searchString" value="QUERY"/>
+            <con:entry key="skip" value="QUERY"/>
+            <con:entry key="limit" value="QUERY"/>
+          </con:parametersType>
+          <con:parametersDisablesEncoding>
+            <con:entry key="searchString" value="false"/>
+            <con:entry key="skip" value="false"/>
+            <con:entry key="limit" value="false"/>
+          </con:parametersDisablesEncoding>
+          <con:environmentSpec/>
+        </con:restRequest>
+      </con:restRequestStep>
+    </con:config>
+  </con:testStep>
+  <con:testStep type="datasourceloop" name="Data Source Loop" id="18590b9c-cbe8-4d7a-8cab-7f9dab5ea867">
+    <con:settings/>
+    <con:config>
+      <dataSourceStep/>
+      <targetStep/>
+      <discardResults>true</discardResults>
+    </con:config>
+  </con:testStep>
+  <con:properties/>
+  <con:reportParameters/>
+</con:testCase>
